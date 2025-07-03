@@ -1,8 +1,7 @@
-
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Activity, Brain, Heart, Lungs, Stomach, Bone, Eye, Ear } from 'lucide-react';
+import { Activity, Brain, Heart, Wind, Zap, Bone, Eye, Ear } from 'lucide-react';
 
 const Diseases = () => {
   const diseaseCategories = [
@@ -11,7 +10,7 @@ const Diseases = () => {
       urduTitle: 'سانس کی بیماریاں',
       description: 'Conditions affecting breathing and lungs',
       urduDescription: 'سانس اور پھیپھڑوں کو متاثر کرنے والی بیماریاں',
-      icon: Lungs,
+      icon: Wind,
       color: 'bg-blue-100 text-blue-600',
       count: '12 conditions'
     },
@@ -20,7 +19,7 @@ const Diseases = () => {
       urduTitle: 'ہاضمہ کی خرابیاں',
       description: 'Stomach and digestive system issues',
       urduDescription: 'پیٹ اور ہاضمہ کے نظام کے مسائل',
-      icon: Stomach,
+      icon: Zap,
       color: 'bg-green-100 text-green-600',
       count: '15 conditions'
     },
