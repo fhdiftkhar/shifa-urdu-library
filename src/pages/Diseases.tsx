@@ -1,9 +1,9 @@
-
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Activity, Brain, Heart, Wind, Zap, Bone, Eye, Ear, ChevronRight, Users, Clock, BookOpen } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Diseases = () => {
   const diseaseCategories = [
@@ -16,7 +16,8 @@ const Diseases = () => {
       color: 'bg-blue-100 text-blue-600',
       count: '12 conditions',
       commonConditions: ['Asthma', 'Bronchitis', 'Pneumonia', 'COPD'],
-      urduConditions: ['دمہ', 'برونکائٹس', 'نمونیا', 'سانس کی بیماری']
+      urduConditions: ['دمہ', 'برونکائٹس', 'نمونیا', 'سانس کی بیماری'],
+      route: 'respiratory'
     },
     {
       title: 'Digestive Disorders',
@@ -27,7 +28,8 @@ const Diseases = () => {
       color: 'bg-green-100 text-green-600',
       count: '15 conditions',
       commonConditions: ['Gastritis', 'IBS', 'Constipation', 'Diarrhea'],
-      urduConditions: ['گیسٹرائٹس', 'آئی بی ایس', 'قبض', 'اسہال']
+      urduConditions: ['گیسٹرائٹس', 'آئی بی ایس', 'قبض', 'اسہال'],
+      route: 'digestive'
     },
     {
       title: 'Cardiovascular',
@@ -38,7 +40,8 @@ const Diseases = () => {
       color: 'bg-red-100 text-red-600',
       count: '8 conditions',
       commonConditions: ['Hypertension', 'Palpitations', 'Angina', 'Arrhythmia'],
-      urduConditions: ['ہائی بلڈ پریشر', 'دل کی دھڑکن', 'سینے میں درد', 'دل کی بے قاعدگی']
+      urduConditions: ['ہائی بلڈ پریشر', 'دل کی دھڑکن', 'سینے میں درد', 'دل کی بے قاعدگی'],
+      route: 'cardiovascular'
     },
     {
       title: 'Neurological',
@@ -49,7 +52,8 @@ const Diseases = () => {
       color: 'bg-purple-100 text-purple-600',
       count: '10 conditions',
       commonConditions: ['Headaches', 'Migraines', 'Anxiety', 'Depression'],
-      urduConditions: ['سر درد', 'آدھے سر کا درد', 'بے چینی', 'ڈپریشن']
+      urduConditions: ['سر درد', 'آدھے سر کا درد', 'بے چینی', 'ڈپریشن'],
+      route: 'neurological'
     },
     {
       title: 'Musculoskeletal',
@@ -60,7 +64,8 @@ const Diseases = () => {
       color: 'bg-orange-100 text-orange-600',
       count: '18 conditions',
       commonConditions: ['Arthritis', 'Back Pain', 'Muscle Cramps', 'Joint Pain'],
-      urduConditions: ['جوڑوں کا درد', 'کمر درد', 'عضلات میں درد', 'جوڑوں کی سوزش']
+      urduConditions: ['جوڑوں کا درد', 'کمر درد', 'عضلات میں درد', 'جوڑوں کی سوزش'],
+      route: 'musculoskeletal'
     },
     {
       title: 'Eye Disorders',
@@ -71,7 +76,8 @@ const Diseases = () => {
       color: 'bg-indigo-100 text-indigo-600',
       count: '7 conditions',
       commonConditions: ['Conjunctivitis', 'Dry Eyes', 'Styes', 'Cataracts'],
-      urduConditions: ['آشوب چشم', 'آنکھوں کا خشک ہونا', 'آنکھ کا پھوڑا', 'موتیا']
+      urduConditions: ['آشوب چشم', 'آنکھوں کا خشک ہونا', 'آنکھ کا پھوڑا', 'موتیا'],
+      route: 'eye-disorders'
     },
     {
       title: 'Ear Conditions',
@@ -82,7 +88,8 @@ const Diseases = () => {
       color: 'bg-teal-100 text-teal-600',
       count: '6 conditions',
       commonConditions: ['Ear Infections', 'Tinnitus', 'Hearing Loss', 'Ear Pain'],
-      urduConditions: ['کان کا انفیکشن', 'کان میں آواز', 'سماعت کا نقصان', 'کان کا درد']
+      urduConditions: ['کان کا انفیکشن', 'کان میں آواز', 'سماعت کا نقصان', 'کان کا درد'],
+      route: 'ear-conditions'
     },
     {
       title: 'General Health',
@@ -93,13 +100,16 @@ const Diseases = () => {
       color: 'bg-healing-100 text-healing-600',
       count: '20 conditions',
       commonConditions: ['Fever', 'Cold & Flu', 'Fatigue', 'Sleep Disorders'],
-      urduConditions: ['بخار', 'زکام اور فلو', 'تھکاوٹ', 'نیند کی خرابی']
+      urduConditions: ['بخار', 'زکام اور فلو', 'تھکاوٹ', 'نیند کی خرابی'],
+      route: 'general-health'
     }
   ];
 
-  const handleCategoryClick = (category: string) => {
-    console.log(`Clicked on ${category} category`);
-    // This will be implemented later for detailed category pages
+  const navigate = useNavigate();
+
+  const handleCategoryClick = (route: string) => {
+    console.log(`Navigating to ${route} category`);
+    navigate(`/diseases/${route}`);
   };
 
   return (
@@ -163,7 +173,7 @@ const Diseases = () => {
               <Card 
                 key={index} 
                 className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group bg-white/90 backdrop-blur-sm"
-                onClick={() => handleCategoryClick(category.title)}
+                onClick={() => handleCategoryClick(category.route)}
               >
                 <CardHeader className="text-center pb-2">
                   <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${category.color} group-hover:scale-110 transition-transform duration-300`}>
