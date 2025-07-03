@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-import { BookOpen, FileText, Languages, Users, Stethoscope, Heart } from 'lucide-react';
+import { BookOpen, FileText, Languages, Users, Stethoscope, Heart, Activity } from 'lucide-react';
 
 export const Hero = () => {
   const quickLinks = [
@@ -23,6 +23,15 @@ export const Hero = () => {
       href: '/books',
       icon: BookOpen,
       color: 'bg-nature-100 text-nature-600'
+    },
+    {
+      title: 'Diseases',
+      urduTitle: 'امراض',
+      description: 'Browse diseases and conditions',
+      urduDescription: 'بیماریوں اور حالات کو دیکھیں',
+      href: '/diseases',
+      icon: Activity,
+      color: 'bg-red-100 text-red-600'
     },
     {
       title: 'About Medicine',
@@ -77,7 +86,7 @@ export const Hero = () => {
           </div>
 
           {/* Quick Link Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16 animate-fade-in" style={{ animationDelay: '1s' }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-16 animate-fade-in" style={{ animationDelay: '1s' }}>
             {quickLinks.map((link, index) => (
               <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
                 <Link to={link.href}>

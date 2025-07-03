@@ -1,7 +1,6 @@
-
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, BookOpen, FileText, Info, Home } from 'lucide-react';
+import { Menu, X, BookOpen, FileText, Info, Home, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const Navigation = () => {
@@ -12,6 +11,7 @@ export const Navigation = () => {
     { href: '/', label: 'Home', urduLabel: 'ہوم', icon: Home },
     { href: '/articles', label: 'Articles', urduLabel: 'مضامین', icon: FileText },
     { href: '/books', label: 'Books', urduLabel: 'کتابیں', icon: BookOpen },
+    { href: '/diseases', label: 'Diseases', urduLabel: 'امراض', icon: Activity },
     { href: '/about', label: 'About', urduLabel: 'تعارف', icon: Info },
   ];
 
